@@ -1,8 +1,10 @@
 <?php
-
+    $dashboard = '<a href="#dashboard" class="dashboard-link" data-icon="bars" >Dashboard</a>';
 ?><html>
 <head>
     <title>Health 2 Me</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
@@ -71,15 +73,96 @@
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" />
                 </div>
-                <input type="submit" value="Submit" />
+                <input type="button" value="Submit" />
             </form>
         </div>
     </div>
-    <div data-role="page" id="dashboard"></div>
-    
-    <div data-role="page" id="addmenu"></div>
-    <div data-role="page" id="addemotion"></div>
-    <div data-role="page" id="menuhistory"></div>
-    <div data-role="page" id="emotionhistory"></div>
+    <div data-role="page" id="dashboard">
+        <div data-role="header">
+            <h1>Dashboard</h1>
+        </div>
+        <div data-role="container">
+            <div class="ui-grid-b">
+                <div class="ui-block-a">
+                    <a href="#addmenu">Add Menu</a>
+                </div>
+                <div class="ui-block-b">
+                    <a href="#addemotion">Add Emotion</a>
+                </div>
+                <div class="ui-block-c">
+                    <a href="#addmedicalstatus">Add Medical Status</a>
+                </div>
+            </div>
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <a href="#calendar">Calendar</a>
+                </div>
+                <div class="ui-block-b">
+                    <a href="#message">Messages</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" id="addmenu">
+        <div data-role="header">
+            <?php echo $dashboard; ?>
+            <h1>Add Menu</h1>
+        </div>
+        <div data-role="content">
+            <form action="#" method="POST">
+                <div data-role="fieldcontain">
+                    <label for="group">Group</label>
+                    <select name="group" id="group">
+                        <option value="">Please Select</option>
+                        <option value="1">Salad</option>
+                        <option value="2">Soup</option>
+                        <option value="3">Main Meal</option>
+                        <option value="4">Fruit</option>
+                        <option value="5">Dessert</option>
+                    </select>
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="food">Food</label>
+                    <select name="food" id="food">
+                        <option value="">Please Select</option>
+                        <option value="1">Chicken Soup</option>
+                        <option value="2">Vegetable Soup</option>
+                        <option value="3">Potatoe Soup</option>
+                        <option value="4">Pork Soup</option>
+                    </select>
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="quantity">Quantity</label>
+                    <select type="number" name="quantity" id="quantity">
+                        <option value="">Please Select</option>
+                        <option value="1">Small (100ml-250ml)</option>
+                        <option value="2">Average (250ml - 300ml)</option>
+                        <option value="3">Big (> 500ml)</option>
+                    </select>
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="date">Date</label>
+                    <input type="date" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="time">Time</label>
+                    <input type="time" name="time" id="time" value="<?php echo date('H:i:s'); ?>" step="1" />
+                </div>
+                <input type="button" value="button" />
+            </form>
+        </div>
+    </div>
+    <div data-role="page" id="addemotion">
+        <div data-role="header">
+            <?php echo $dashboard; ?>
+            <h1>Add Emotional Status</h1>
+        </div>
+        <div data-role="content">
+            
+        </div>
+    </div>
+    <div data-role="page" id="calendar"></div>
+    <div data-role="page" id="addmedicalstatus"></div>
+    <div data-role="page" id="messages"></div>
 </body>
 </html>
