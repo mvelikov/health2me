@@ -45,24 +45,35 @@
         <div data-role="header">
             <h1>Sign up to Health 2 Me</h1>
         </div>
-        <form action="#" method="POST">
-            <div data-role="fieldcontain">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" />
-            </div>
-            <div data-role="fieldcontain">
-                <label for="password">Password</label>
-                <input type="text" name="password" id="password" />
-            </div>
-            <div data-role="fieldcontain">
-                <label for="repeatpassword">Repeat Password</label>
-                <input type="text" name="repeatpassword" id="repeatpassword" />
-            </div>
-            <div data-role="fieldcontain">
-                <label for="repeatpassword">Repeat Password</label>
-                <input type="text" name="repeatpassword" id="repeatpassword" />
-            </div>
-        </form>
+        <div data-role="content">
+            <form action="#" method="POST">
+                <div data-role="fieldcontain">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="password">Password</label>
+                    <input type="text" name="password" id="password" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="repeatpassword">Repeat Password</label>
+                    <input type="text" name="repeatpassword" id="repeatpassword" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="repeatpassword">Repeat Password</label>
+                    <input type="text" name="repeatpassword" id="repeatpassword" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" />
+                </div>
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
     </div>
     <div data-role="page" id="dashboard"></div>
     
