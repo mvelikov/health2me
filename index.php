@@ -1,5 +1,13 @@
 <?php
     $dashboard = '<a href="#dashboard" class="dashboard-link" data-icon="bars" >Dashboard</a>';
+    $date = '<div data-role="fieldcontain">
+                    <label for="date">Date</label>
+                    <input type="date" name="date" id="date" value="' . date('Y-m-d') . '" />
+                </div>';
+    $time = '<div data-role="fieldcontain">
+                    <label for="time">Time</label>
+                    <input type="time" name="time" id="time" value="' . date('H:i:s') . '" step="1" />
+                </div>';
 ?><html>
 <head>
     <title>Health 2 Me</title>
@@ -8,6 +16,11 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.min.js"></script>
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.print.css" />
+
 </head>
 <body>
     <div data-role="page" id="home">
@@ -84,7 +97,7 @@
         <div data-role="container">
             <div class="ui-grid-b">
                 <div class="ui-block-a">
-                    <a href="#addmenu">Add Menu</a>
+                    <a href="#addmeal">Add Meal</a>
                 </div>
                 <div class="ui-block-b">
                     <a href="#addemotion">Add Emotion</a>
@@ -95,7 +108,7 @@
             </div>
             <div class="ui-grid-a">
                 <div class="ui-block-a">
-                    <a href="#calendar">Calendar</a>
+                    <a href="#calendar" id="calendarlink">Calendar</a>
                 </div>
                 <div class="ui-block-b">
                     <a href="#message">Messages</a>
@@ -103,10 +116,10 @@
             </div>
         </div>
     </div>
-    <div data-role="page" id="addmenu">
+    <div data-role="page" id="addmeal">
         <div data-role="header">
             <?php echo $dashboard; ?>
-            <h1>Add Menu</h1>
+            <h1>Add Meal</h1>
         </div>
         <div data-role="content">
             <form action="#" method="POST">
@@ -140,15 +153,8 @@
                         <option value="3">Big (> 500ml)</option>
                     </select>
                 </div>
-                <div data-role="fieldcontain">
-                    <label for="date">Date</label>
-                    <input type="date" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" />
-                </div>
-                <div data-role="fieldcontain">
-                    <label for="time">Time</label>
-                    <input type="time" name="time" id="time" value="<?php echo date('H:i:s'); ?>" step="1" />
-                </div>
-                <input type="button" value="button" />
+                
+                <input type="button" value="Submit" />
             </form>
         </div>
     </div>
@@ -158,11 +164,58 @@
             <h1>Add Emotional Status</h1>
         </div>
         <div data-role="content">
-            
+            <form action="#" method="POST">
+                <div data-role="fieldcontain">
+                    <label for="rating">Rating</label>
+                    <select id="rating" name="rating">
+                        <option value="">Please Select</option>
+                        <option value="-3">Aweful -3</option>
+                        <option value="-2">Poor -2</option>
+                        <option value="-1">Bad -1</option>
+                        <option value="1">Neutral</option>
+                        <option value="2">Fine +1</option>
+                        <option value="3">Good +2</option>
+                        <option value="4">Awesome +3</option>
+                    </select>
+                </div>
+                <?php echo $date, $time; ?>
+                <input type="button" value="Submit" />
+            </form>
         </div>
     </div>
-    <div data-role="page" id="calendar"></div>
-    <div data-role="page" id="addmedicalstatus"></div>
+    <div data-role="page" id="calendar">
+        <div data-role="header">
+            <?php echo $dashboard; ?>
+            <h1>Calendar</h1>
+        </div>
+        <div data-role="content">
+            <div id="calendar-jq"></div>
+        </div>
+    </div>
+    <div data-role="page" id="addmedicalstatus">
+        <div data-role="header">
+            <?php echo $dashboard; ?>
+            <h1>Add Medical Status</h1>
+        </div>
+        <div data-role="content">
+            <form action="#" method="POST">
+                <div data-role="fieldcontain">
+                    <label for="pressure">Blood Pressure</label>
+                    <input type="text" name="pressure" id="pressure" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="sugar">Blood Sugar</label>
+                    <input type="text" name="sugar" id="sugar" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="temperature">Temperature</label>
+                    <input type="text" name="temperature" id="temperature" />
+                </div>
+                <?php echo $date, $time; ?>
+                <input type="button" value="Submit" />
+            </form>
+        </div>
+    </div>
     <div data-role="page" id="messages"></div>
 </body>
 </html>
