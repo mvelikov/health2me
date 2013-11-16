@@ -16,11 +16,11 @@
         <div data-role="content" class="jqm-content">
             <h1>Please log in Health 2 Me</h1>
             <form action="#" method="POST">
-                <div data-role="placeholder">
+                <div data-role="fieldcontain">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" />
                 </div>
-                <div data-role="placeholder">
+                <div data-role="fieldcontain">
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" />
                 </div>
@@ -46,15 +46,19 @@
             <h1>Sign up to Health 2 Me</h1>
         </div>
         <form action="#" method="POST">
-            <div data-role="placeholder">
+            <div data-role="fieldcontain">
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username" />
             </div>
-            <div data-role="placeholder">
+            <div data-role="fieldcontain">
                 <label for="password">Password</label>
                 <input type="text" name="password" id="password" />
             </div>
-            <div data-role="placeholder">
+            <div data-role="fieldcontain">
+                <label for="repeatpassword">Repeat Password</label>
+                <input type="text" name="repeatpassword" id="repeatpassword" />
+            </div>
+            <div data-role="fieldcontain">
                 <label for="repeatpassword">Repeat Password</label>
                 <input type="text" name="repeatpassword" id="repeatpassword" />
             </div>
