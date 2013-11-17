@@ -8,13 +8,40 @@
                     <label for="time">Time</label>
                     <input type="time" name="time" id="time" value="' . date('H:i:s') . '" step="1" />
                 </div>';
+    $icon = '<img src="images/plus.png" alt="icon" /><br />';
 ?><html>
 <head>
-    <title>Health 2 Me</title>
+    <title>Health2Me</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.flatui.css" />
+    <link rel="stylesheet" href="css/custom.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).bind("mobileinit", function () {
+
+            // Navigation
+            // $.mobile.page.prototype.options.backBtnText = "Go back";
+            // $.mobile.page.prototype.options.addBackBtn      = true;
+            $.mobile.page.prototype.options.backBtnTheme    = "d";
+
+            // Page
+            $.mobile.page.prototype.options.headerTheme = "b";  // Page header only
+            $.mobile.page.prototype.options.contentTheme    = "b";
+            $.mobile.page.prototype.options.footerTheme = "b";
+
+            // Listviews
+            // $.mobile.listview.prototype.options.headerTheme = "b";  // Header for nested lists
+            // $.mobile.listview.prototype.options.theme           = "b";  // List items / content
+            // $.mobile.listview.prototype.options.dividerTheme    = "d";  // List divider
+
+            // $.mobile.listview.prototype.options.splitTheme   = "b";
+            // $.mobile.listview.prototype.options.countTheme   = "b";
+            // $.mobile.listview.prototype.options.filterTheme = "c";
+            // $.mobile.listview.prototype.options.filterPlaceholder = "Filter data...";
+        });
+    </script>
     <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.min.js"></script>
     <script src="scripts.js"></script>
@@ -25,11 +52,11 @@
 <body>
     <div data-role="page" id="home">
         <div data-role="header">
-            <h1>Health 2 Me</h1>
+            <h1>Health2Me</h1>
         </div>
     
         <div data-role="content" class="jqm-content">
-            <h1>Please log in Health 2 Me</h1>
+            <h1>Please log in Health2Me</h1>
             <form action="#" method="POST">
                 <div data-role="fieldcontain">
                     <label for="username">Username</label>
@@ -42,7 +69,7 @@
                 <a href="#dashboard" data-role="button">Submit</a>
             </form>
             <h3>Not a member? <a href="#signup">Sign up</a></h3>
-            <a href="#"><img src="images/facebook.png" alt="Signup with Facebook" /></a>
+            <a href="#"><img src="images/facebook.png" style="max-width : 100%" alt="Signup with Facebook" /></a>
         </div>
 
         <!-- <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
@@ -58,7 +85,7 @@
     </div>
     <div data-role="page" id="signup">
         <div data-role="header">
-            <h1>Sign up to Health 2 Me</h1>
+            <h1>Sign up to Health2Me</h1>
         </div>
         <div data-role="content">
             <form action="#" method="POST">
@@ -95,25 +122,43 @@
             <h1>Dashboard</h1>
         </div>
         <div data-role="container">
-            <div class="ui-grid-b">
-                <div class="ui-block-a">
-                    <a href="#addmeal">Add Meal</a>
+            <div class="ui-grid-a">
+                <div class="ui-block-a grid-border">
+                    <a href="#addmeal" class="grid-alignment">
+                        <?php echo $icon; ?>
+                        Add Meal</a>
                 </div>
                 <div class="ui-block-b">
-                    <a href="#addemotion">Add Emotion</a>
-                </div>
-                <div class="ui-block-c">
-                    <a href="#addmedicalstatus">Add Medical Status</a>
+                    <a href="#addemotion" class="grid-alignment">
+                        <?php echo $icon; ?>
+                        Add Emotion</a>
                 </div>
             </div>
             <div class="ui-grid-a">
-                <div class="ui-block-a">
-                    <a href="#calendar" id="calendarlink">Calendar</a>
+                <div class="ui-block-a grid-border">
+                    <a href="#calendar" id="calendarlink" class="grid-alignment">
+                        <img src="images/calendar.png" alt="Calendar" /><br />
+                        Calendar</a>
                 </div>
                 <div class="ui-block-b">
-                    <a href="#message">Messages</a>
+                    <a href="#messages" class="grid-alignment">
+                        <img src="images/mail.png" alt="Message" /><br />
+                        Messages</a>
                 </div>
             </div>
+            <div class="ui-grid-a">
+                <div class="ui-block-a grid-border">
+                    <a href="#addmedicalstatus" class="grid-alignment">
+                        <?php echo $icon; ?>
+                        Add Medical Status</a>
+                </div>
+                <div class="ui-block-b">
+                    <a href="#addpillsschedule" class="grid-alignment">
+                        <?php echo $icon; ?>
+                        Add Pills Schedule</a>
+                </div>
+            </div>
+            
         </div>
     </div>
     <div data-role="page" id="addmeal">
@@ -216,6 +261,40 @@
             </form>
         </div>
     </div>
-    <div data-role="page" id="messages"></div>
+    <div data-role="page" id="messages">
+        <div data-role="header">
+            <?php echo $dashboard; ?>
+            <h1>Messages</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" data-insert="true">
+            <?php for ($i = 0; $i < 5; $i++): ?>
+                <li>
+                    <a href="#">
+                        <h3>Hello, who are you?</h3>
+                        <p>How is your diet going on?</p>
+                        <img src="images/me.jpg" class="ui-li-thumb" />
+                    </a>
+                </li>
+            <?php endfor; ?>
+            </ul>
+        </div>
+    </div>
+    <div data-role="page" id="addpillsschedule">
+        <div data-role="header">
+            <?php echo $dashboard; ?>
+            <h1>Add Pills Schedule</h1>
+        </div>
+        <div data-role="content">
+            <form action="#" method="POST">
+                <div data-role="fieldcontain">
+                    <label for="pillname">Pill Name</label>
+                    <input type="text" name="pillname" id="pillname" />
+                </div>
+                <?php echo $date, $time; ?>
+                <input type="button" value="Submit" />
+            </form>
+        </div>
+    </div>
 </body>
 </html>
